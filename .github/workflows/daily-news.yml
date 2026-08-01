@@ -2,7 +2,10 @@ name: Daily News Digest
 
 on:
   schedule:
-    - cron: "0 11 * * *"
+    # 12:00 UTC = 7:00 AM EST (standard time). During daylight saving (EDT),
+    # this will fire at 8:00 AM instead of 7:00. Adjust to 11 if you want it
+    # to stay locked to 7:00 AM EDT during summer months instead.
+    - cron: "0 12 * * *"
   workflow_dispatch: {}
 
 permissions:
