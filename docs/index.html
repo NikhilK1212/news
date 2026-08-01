@@ -2,10 +2,274 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily News Digest</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  .header h1 {
+    margin: 0 0 4px 0;
+    font-size: 22px;
+  }
+  .header .timestamp {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .category {
+    margin-bottom: 28px;
+  }
+  .category h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  li:last-child { border-bottom: none; }
+  .headline {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+  .detail {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 3px;
+  }
+  .meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta a { color: var(--accent); text-decoration: none; }
+  .empty { color: var(--muted); font-size: 14px; font-style: italic; }
+</style>
 </head>
-<body style="font-family: sans-serif; padding: 24px;">
-  <h1>Daily News Digest</h1>
-  <p>This page will populate after the first scheduled run (or after you manually trigger the workflow once).</p>
+<body>
+  <div class="header">
+    <h1>Daily News Digest</h1>
+    <div class="timestamp">Updated Sat, 01 Aug 2026 17:42:45 GMT</div>
+  </div>
+  <section class="category">
+    <h2>Politics — left-leaning outlets</h2>
+    <ul><li>
+        <div class="headline">Trump Posts 254-Word Morning Tirade Over Republican Going Against Todd Blanche And Slush Fund</div>
+        <div class="detail">“Perhaps there has never been a group of people treated so badly in our Nation’s history,” Trump said of those eligible for his controversial fund.</div>
+        <div class="meta">HuffPost &middot; <a href="https://www.huffpost.com/entry/john-cornyn-trump-todd-blanche-doj-anti-weaponization-fund-j6_n_6a6cc3bce4b0c78215f84907" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Jimmy Kimmel's Trump Jab Was Followed By A Stunning $1 Million Jackpot</div>
+        <div class="detail">Kimmel’s long-running habit of mocking the president during an annual White House tradition turned out to be surprisingly useful.</div>
+        <div class="meta">HuffPost &middot; <a href="https://www.huffpost.com/entry/jimmy-kimmel-trump-joke-ben-affleck-million_n_6a6ca676e4b0ea7db0fc3343" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Senior FIFA Official Says Staff Were ‘Deceived’ By Infantino's World Cup Sell-Off Plan</div>
+        <div class="detail">“It is the project of one person,” said FIFA’s chief operating officer Kevin Lamour, a long-time colleague of Infantino at both FIFA and UEFA.</div>
+        <div class="meta">HuffPost &middot; <a href="https://www.huffpost.com/entry/senior-fifa-official-says-staff-were-deceived-by-infantinos-world-cup-sell-off-plan_n_6a6cbcaee4b0c78215f843c6" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Sweeping cyberattack on water systems in multiple states has US officials on edge | CNN Politics</div>
+        <div class="detail">Hackers have targeted water systems in several US states in a coordinated cyberattack that has caused some utilities to issue boil-water notices and switch to manual mode, taking their systems offline, according to US officials.</div>
+        <div class="meta">CNN &middot; <a href="https://www.cnn.com/2026/07/31/politics/sweeping-cyberattack-us-water-systems" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Eggs are cheaper than when Trump took office. ‘Everything else’? Absolutely not | CNN Politics</div>
+        <div class="detail">Eggs have gotten much cheaper since President Donald Trump returned to office in January 2025. But “everything else” too, as Trump claimed on Monday? Absolutely not. Far more prices have gone up since his second inauguration than have gone down.</div>
+        <div class="meta">CNN &middot; <a href="https://www.cnn.com/2026/07/31/politics/trump-egg-prices-fact-check" target="_blank" rel="noopener">source</a></div>
+      </li></ul>
+  </section>
+<section class="category">
+    <h2>Politics — right-leaning outlets</h2>
+    <ul><li>
+        <div class="headline">Michigan hospital pays $410K to settle lawsuit by physician assistant fired over transgender policy</div>
+        <div class="detail">Valerie Kloosterman says she was fired three weeks after requesting a religious accommodation from mandatory gender identity training at the hospital.</div>
+        <div class="meta">Fox News &middot; <a href="https://www.foxnews.com/media/michigan-hospital-pays-410k-settle-lawsuit-physician-assistant-fired-transgender-policy" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Fauci faces lifetime ban from federal government work under new bill following explosive hearing</div>
+        <div class="detail">Rep. Rich McCormick's bill could ban Anthony Fauci from federal employment after he invoked the Fifth Amendment over 100 times before Rand Paul.</div>
+        <div class="meta">Fox News &middot; <a href="https://www.foxnews.com/politics/fauci-faces-lifetime-ban-from-federal-government-work-under-new-bill-following-explosive-hearing" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Silicon Valley says Trump’s ‘woke AI’ crackdown can’t be done — even as leading chatbots show lefty bias</div>
+        <div class="detail">A software industry trade group says the Trump administration is setting AI companies up to meet requirements no one can reliably satisfy.</div>
+        <div class="meta">New York Post &middot; <a href="https://nypost.com/2026/07/31/business/silicon-valley-says-trumps-woke-ai-crackdown-cant-be-done-even-as-leading-chatbots-show-lefty-bias/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Internet erupts over report that Platner's replacement in key Senate race fathered children with second cousin</div>
+        <div class="detail">Troy Jackson, who replaced Graham Platner on the Maine ballot, fathered two children with his second cousin, sparking fierce social media reaction.</div>
+        <div class="meta">Fox News &middot; <a href="https://www.foxnews.com/politics/internet-erupts-report-platners-replacement-key-senate-race-fathered-children-second-cousin" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">California Gov. Gavin Newsom releases long-awaited tax returns</div>
+        <div class="detail">Gov. Gavin Newsom released years of long-awaited tax returns Friday after waiting until the final day of his self-imposed deadline.</div>
+        <div class="meta">New York Post &middot; <a href="https://nypost.com/2026/07/31/us-news/gavin-newsom-releases-tax-returns-as-millions-in-earnings-revealed/" target="_blank" rel="noopener">source</a></div>
+      </li></ul>
+  </section>
+<section class="category">
+    <h2>Tech</h2>
+    <ul><li>
+        <div class="headline">New Google Earth AI tool could fuel misinformation, experts say - BBC</div>
+        <div class="detail">Experts tell BBC Verify Google's new feature which lets people generate fake satellite images could be misused.</div>
+        <div class="meta">BBC News &middot; <a href="https://www.bbc.com/news/articles/c9349yx2ydvo" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">This is the ‘Google Pixel Tag’ - 9to5Google</div>
+        <div class="detail">Ahead of Google’s Pixel 11 launch, 9to5Google has obtained an image of a new tracker called the “Google Pixel Tag”...</div>
+        <div class="meta">9to5google.com &middot; <a href="http://9to5google.com/2026/07/31/this-is-the-google-pixel-tag/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Apple has five products launching this fall that we’ve waited a long time for - 9to5Mac</div>
+        <div class="detail">Apple has a lot of new products launching this fall, including five that have been several years in the making. Here’s what’s coming.</div>
+        <div class="meta">9to5Mac &middot; <a href="https://9to5mac.com/2026/07/31/apple-has-five-products-launching-this-fall-that-weve-waited-a-long-time-for/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">In A 'Who Could Have Possibly Seen This Coming' Event, Ubisoft Will Shut Down Its NFT Game - kotaku.com</div>
+        <div class="detail"></div>
+        <div class="meta">Google News &middot; <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNRG5TTWplZnIyanhUWGhpcE03QmxFczluZjBSVEhjWVlRUXpScndRbnNsTEwxZ2lja0hHNWF5cTROOEoydFVMUU9jdWhWOWtHSnJQX2lvbHpSS0RHWkhzMVo1TktuLXBVWElLMWNYcXNfd2hlZDZGXzd5d1UwMnF4NHd5UHZFM2FENTRpQVdFdFRKMFdTaEJsOS12N28?oc=5" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">New set of leaked Pixel 11 marketing images reveals Google's real selling point - PhoneArena</div>
+        <div class="detail"></div>
+        <div class="meta">PhoneArena &middot; <a href="https://www.phonearena.com/news/new-set-of-leaked-pixel-11-marketing-images-reveals-googles-real-selling-point_id182273" target="_blank" rel="noopener">source</a></div>
+      </li></ul>
+  </section>
+<section class="category">
+    <h2>Startups</h2>
+    <ul><li>
+        <div class="headline">Trump Reaping Whirlwind From His Senate Purges</div>
+        <div class="detail">Trump’s agenda is jammed in the Senate due to Republican senators he purged or alienated by purge threats. Intraparty strife is also a bad look for the midterms. He only has himself to blame, Ed Kilgore writes.</div>
+        <div class="meta">New York Magazine &middot; <a href="http://nymag.com/intelligencer/article/trump-reaping-whirlwind-from-his-senate-gop-purges-tillis-cornyn.html" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">VIPC CEO Joe Benevento Named Virginia Business 2026 C-Suite Award Recipient</div>
+        <div class="detail">Virginia Business honors Joe Benevento for remarkable leadership, company performance, and community engagement. RICHMOND, Va., July 31, 2026 /PRNewswire/ -- The Virginia Innovation Partnership Corp. (VIPC) is pleased to announce that Virginia Business select…</div>
+        <div class="meta">PRNewswire &middot; <a href="https://www.prnewswire.com/news-releases/vipc-ceo-joe-benevento-named-virginia-business-2026-c-suite-award-recipient-302840244.html" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Parents who won’t pay child support can lose SNAP eligibility under reinstated Trump rule</div>
+        <div class="detail">WASHINGTON — Millions of parents refusing to pay child support may have their Supplemental Nutrition Assistance Program (SNAP) eligibility revoked after the US Department of Agriculture rescinded a Biden administration rule earlier this month, The Post has le…</div>
+        <div class="meta">Freerepublic.com &middot; <a href="https://freerepublic.com/focus/f-chat/4390073/posts" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Andromeda Standardizes Storage Across 50+ GPU Providers on WEKA NeuralMesh</div>
+        <div class="detail">WEKA announced that Andromeda, the platform that connects AI teams with high-performance compute across an open market of providers, is integrating WEKA NeuralMesh as a core data storage layer for its managed GPU clusters. Andromeda customers can choose betwe…</div>
+        <div class="meta">Storagereview.com &middot; <a href="https://www.storagereview.com/news/andromeda-standardizes-storage-across-50-gpu-providers-on-weka-neuralmesh" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">The ban on robot vacuums won’t make them safer, only worse</div>
+        <div class="detail">No other gadget knows as much about your home as a robot vacuum. They map your space, learn your routines, and many now carry a camera and microphone into every room in your house. As AI gives them a better understanding of what they see, the privacy and secu…</div>
+        <div class="meta">The Verge &middot; <a href="https://www.theverge.com/tech/973738/robot-vacuum-ban-fewer-choices-higher-prices" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Why Africa could back controversial Fifa plan</div>
+        <div class="detail">Fifa's plan sell stakes in its competitions to private investors has been heavily criticised, but the body running African football is yet to take a side.</div>
+        <div class="meta">BBC News &middot; <a href="https://www.bbc.com/sport/football/articles/cy07qjzzexzo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D" target="_blank" rel="noopener">source</a></div>
+      </li></ul>
+  </section>
+<section class="category">
+    <h2>Aerospace</h2>
+    <ul><li>
+        <div class="headline">Report: Trump and Zelensky Sign Deal to Bring Ukrainian Drones to U.S.</div>
+        <div class="detail">A top Ukrainian diplomat told NBC News in a report published Thursday that Kyiv had brokered an agreement with Washington to share its drone technology, potentially allowing for collaboration to improve drone models.
+The post Report: Trump and Zelensky Sign D…</div>
+        <div class="meta">Breitbart News &middot; <a href="https://www.breitbart.com/middle-east/2026/07/31/report-trump-and-zelensky-sign-deal-to-bring-ukrainian-drones-to-u-s/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">VIPC CEO Joe Benevento Named Virginia Business 2026 C-Suite Award Recipient</div>
+        <div class="detail">Virginia Business honors Joe Benevento for remarkable leadership, company performance, and community engagement. RICHMOND, Va., July 31, 2026 /PRNewswire/ -- The Virginia Innovation Partnership Corp. (VIPC) is pleased to announce that Virginia Business select…</div>
+        <div class="meta">PRNewswire &middot; <a href="https://www.prnewswire.com/news-releases/vipc-ceo-joe-benevento-named-virginia-business-2026-c-suite-award-recipient-302840244.html" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Ken Griffin’s rescue of Situational Awareness sparks AI stock rally</div>
+        <div class="detail">Citadel's intervention highlights the risks of excessive leverage in volatile sectors, underscoring the need for cautious investment strategies.
+The post Ken Griffin’s rescue of Situational Awareness sparks AI stock rally appeared first on Crypto Briefing.</div>
+        <div class="meta">Crypto Briefing &middot; <a href="https://cryptobriefing.com/ken-griffin-citadel-situational-awareness-ai-rally/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Colts Training Camp Day 3: ‘Find a way’ when opportunity knocks</div>
+        <div class="detail">Find a way to make the roster. Find a way to make the play when it matters most. Find a way to fly through the turbulence, through adversity. Ultimately, the goal is to find a way back to the playoffs.</div>
+        <div class="meta">Stampede Blue &middot; <a href="https://www.stampedeblue.com/indianapolis-colts-training-camp/125791/colts-training-camp-day-3-find-a-way-when-opportunity-knocks" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Discarded SpaceX rocket on high-speed collision course with moon</div>
+        <div class="detail">The rocket will unintentionally hit the moon on Wednesday, carving out a crater and sending up a plume of dust that scientists are eager to observe.</div>
+        <div class="meta">CNBC &middot; <a href="https://www.cnbc.com/2026/07/31/discarded-spacex-rocket-unintentional-collision-moon.html" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Jim Cramer spots overlooked winner after aerospace split</div>
+        <div class="detail">Honeywell's spin-off into three separate public businesses from its massive industrial giant is complete.
+Investors are just beginning the hard part, Jim Cramer says.
+The CNBC host sees Honeywell Technologies (HON) and new independent Honeywell Aerospace (HON…</div>
+        <div class="meta">Biztoc.com &middot; <a href="https://biztoc.com/x/08666af8a8ce7866" target="_blank" rel="noopener">source</a></div>
+      </li></ul>
+  </section>
+<section class="category">
+    <h2>Finance</h2>
+    <ul><li>
+        <div class="headline">New York sues to shut down Kalshi, seeks $100,000 for each unauthorized bet</div>
+        <div class="detail">The state claims Kalshi is an unlicensed sportsbook, while the prediction market says New York has no authority since it is regulated by a federal agency.</div>
+        <div class="meta">Fortune &middot; <a href="https://fortune.com/2026/07/31/new-york-shut-down-kalshi-unauthorized-bets/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Platformonomics TGIF #136: July 31, 2026</div>
+        <div class="detail">Platformonomics TGIF is a weekly roll-up of links, comments on those links, and perhaps a little too much tugging on my favorite threads. Get Platformonomics Updates By Email The Q2 CAPEX numbers are here, the Q2 CAPEX numbers are here! My Writing Follow the …</div>
+        <div class="meta">Platformonomics.com &middot; <a href="https://platformonomics.com/2026/07/platformonomics-tgif-136-july-31-2026/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Oil prices rise after Iran halts ships in Strait of Hormuz, and crypto markets are watching</div>
+        <div class="detail">Rising oil prices due to geopolitical tensions could lead to inflationary pressures, impacting global markets and influencing crypto dynamics.
+The post Oil prices rise after Iran halts ships in Strait of Hormuz, and crypto markets are watching appeared first …</div>
+        <div class="meta">Crypto Briefing &middot; <a href="https://cryptobriefing.com/oil-prices-iran-strait-hormuz-crypto/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Ken Griffin’s rescue of Situational Awareness sparks AI stock rally</div>
+        <div class="detail">Citadel's intervention highlights the risks of excessive leverage in volatile sectors, underscoring the need for cautious investment strategies.
+The post Ken Griffin’s rescue of Situational Awareness sparks AI stock rally appeared first on Crypto Briefing.</div>
+        <div class="meta">Crypto Briefing &middot; <a href="https://cryptobriefing.com/ken-griffin-citadel-situational-awareness-ai-rally/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Coinbase earnings miss tied to crypto market slump, not fundamentals</div>
+        <div class="detail">Coinbase's earnings miss highlights the vulnerability of crypto exchanges to macroeconomic shifts, emphasizing the need for market resilience.
+The post Coinbase earnings miss tied to crypto market slump, not fundamentals appeared first on Crypto Briefing.</div>
+        <div class="meta">Crypto Briefing &middot; <a href="https://cryptobriefing.com/coinbase-earnings-miss-tied-to-crypto-market-slump-not-fundamentals/" target="_blank" rel="noopener">source</a></div>
+      </li>
+<li>
+        <div class="headline">Linde plc Q2 2026 Earnings Call Summary</div>
+        <div class="detail">Strategic Performance and Market Dynamics
+- Achieved record sales and EPS growth of near double-digits, supported by a record project backlog of $8.1 billion following significant electronics wins in the Western U.S. 
+- Operating margins excluding cost pass-t…</div>
+        <div class="meta">Biztoc.com &middot; <a href="https://biztoc.com/x/9de8a6c7b4f4f5c8" target="_blank" rel="noopener">source</a></div>
+      </li></ul>
+  </section>
 </body>
 </html>
