@@ -1,6 +1,10 @@
 // generate-news.mjs
-// Pulls daily news bullets from NewsAPI.org and writes a static docs/index.html
-// that GitHub Pages will serve (and that you embed in Notion).
+// Pulls daily news bullets from NewsAPI.org, fetches each article's actual
+// page to extract real paragraph text (NewsAPI's own "content" field is
+// capped at ~260 chars on the free tier, too short to give real detail),
+// and writes a static docs/index.html that GitHub Pages will serve.
+
+import * as cheerio from "cheerio";
 
 const API_KEY = process.env.NEWSAPI_KEY;
 if (!API_KEY) {
@@ -17,6 +21,8 @@ const RIGHT_DOMAINS = "foxnews.com,nypost.com,washingtontimes.com,nationalreview
 
 // How many stories to pull per category
 const PAGE_SIZE = 3;
+// How many sentences of real article text to show per story
+const SENTENCES_WANTED = 5;
 
 const CATEGORIES = [
   {
@@ -57,10 +63,62 @@ function cleanContent(content = "") {
   return content.replace(/\s*\[\+\d+\s*chars\]\s*$/i, "").trim();
 }
 
-function buildDetail(article) {
+function firstNSentences(text, n) {
+  const sentences = text.match(/[^.!?]+[.!?]+(\s|$)/g);
+  if (!sentences) return text.trim();
+  return sentences.slice(0, n).join(" ").trim();
+}
+
+// Best-effort fetch of the real article page and extraction of its body text.
+// Falls back gracefully (returns null) if the site blocks us, times out, or
+// the page doesn't look like a normal article (paywalls, JS-only pages, etc).
+async function fetchArticleText(url) {
+  if (!url) return null;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+        Accept: "text/html"
+      }
+    });
+    clearTimeout(timeout);
+    if (!res.ok) return null;
+    const contentType = res.headers.get("content-type") || "";
+    if (!contentType.includes("text/html")) return null;
+
+    const html = await res.text();
+    const $ = cheerio.load(html);
+
+    // Prefer <article> if present, else fall back to whole body
+    const scope = $("article").length ? $("article") : $("body");
+    const paragraphs = [];
+    scope.find("p").each((_, el) => {
+      const t = $(el).text().replace(/\s+/g, " ").trim();
+      // Filter out short nav/caption junk
+      if (t.length > 40) paragraphs.push(t);
+    });
+
+    const fullText = paragraphs.join(" ");
+    if (fullText.length < 200) return null; // not enough real content extracted
+
+    return firstNSentences(fullText, SENTENCES_WANTED);
+  } catch (e) {
+    clearTimeout(timeout);
+    return null;
+  }
+}
+
+async function buildDetail(article) {
+  const scraped = await fetchArticleText(article.url);
+  if (scraped) return scraped;
+
+  // Fallback: combine description + NewsAPI's truncated content snippet
   const description = (article.description || "").trim();
   const content = cleanContent(article.content || "");
-  // Combine description + content snippet when they add distinct information
   if (content && !description.includes(content) && content !== description) {
     return `${description} ${content}`.trim();
   }
@@ -79,12 +137,19 @@ async function fetchCategory(cat) {
   }
 
   const data = await response.json();
-  return (data.articles || []).map((a) => ({
-    headline: a.title || "",
-    detail: buildDetail(a),
-    source: a.source?.name || "",
-    url: a.url || ""
-  }));
+  const articles = data.articles || [];
+
+  const results = [];
+  for (const a of articles) {
+    const detail = await buildDetail(a);
+    results.push({
+      headline: a.title || "",
+      detail,
+      source: a.source?.name || "",
+      url: a.url || ""
+    });
+  }
+  return results;
 }
 
 function escapeHtml(str = "") {
